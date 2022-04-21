@@ -1,0 +1,534 @@
+/*******************************************************************
+******                SO Framework: Sass Menu                 ******
+********************************************************************/
+//** simple and lightweight mixin library for Sass **//
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **//
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'utilities/rem';
+
+//** Variables for responsive design in bootstrap with sass **//
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'utilities/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**//
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'utilities/directional';
+
+//Mixins utilities
+@import 'utilities/theme_variables';
+@import 'utilities/utilities';
+
+/*============ MODULE MEGAMENU HORIZONTAL  ==================*/
+
+
+.container-megamenu ul.megamenu li{
+    .sub-menu{
+        z-index: 998;       
+    }
+}
+ul.megamenu li .sub-menu .content{
+    padding: 25px 0;
+}
+.container-megamenu.horizontal{
+    .title-feature,
+    ul.megamenu .title-submenu,
+    ul.megamenu li .sub-menu .content .static-menu a.main-menu,
+    ul.megamenu .subcategory  a.title-submenu{ line-height: 1.5; text-transform: capitalize; font-weight: bold; 
+        padding-bottom: 0; margin-bottom: 5px; 
+    }
+   	ul.megamenu li .sub-menu .content {
+	   	h3{
+	   		font-size: 16px; color: #191919; line-height: 30px; padding: 3px 20px; text-transform: uppercase; font-family: 'Libre Franklin', sans-serif;
+	   	}
+   	}
+
+    ul.megamenu li .sub-menu .content a,
+    ul.megamenu li .sub-menu .content .html a.subcategory_item{ line-height: 30px; color: #909090; display: block; padding: 5px 20px; text-transform: capitalize; font-size: 14px;
+        &:hover{ color: $linkColor; background: #eaf7ff; border-left: 2px $background solid; }
+    }
+    ul.megamenu > li > a  img{ position: absolute; top: -8px; #{$right}: 0px;  height: auto;}
+
+   
+
+    /*-------- SUB MENU HORIZONTAL ----------*/
+    ul.megamenu .sub-menu .content > .border{
+        border: none;
+        padding-top: 0;
+    }
+   /* ul.megamenu li .sub-menu .content .static-menu .menu ul ul,
+    ul.megamenu .title-submenu{
+        padding: 0;
+    }
+    ul.megamenu li .sub-menu .content .static-menu .menu ul ul li::before,
+    ul.megamenu li .sub-menu .content .hover-menu a::before{
+        display: none;
+    }*/
+
+    ul.megamenu li .sub-menu .content{
+        img{
+            &:hover{
+                @include opacity(0.8);
+            }
+        } 
+        .item-banner{
+            .img-banner-w{
+                margin: 0 -15px;
+            }
+            .img-banner{
+                width: 50%;
+                padding: 0 15px;
+                float: $left;
+            }
+        }  
+    } 
+
+    
+    // MENU FEATURES
+    
+   
+    
+}
+/*============ MODULE MEGAMENU VERTICAL  ==================*/
+.container-megamenu{
+	.container{width: 100%; padding: 0;}
+}
+.container-megamenu.vertical{
+    z-index: 990;
+    .megamenuToogle-wrapper{
+        background-color: transparent;
+    }
+    #menuHeading{
+        margin: 0;
+        height:45px;
+		.megamenuToogle-pattern {
+			position: relative;
+			.container {
+				font-size: 13px;
+				  text-transform: uppercase;
+				  font-weight: bold;
+				  padding: 0 0 0 15px !important;
+				  line-height: 45px;
+				  background: #222 ;
+				  border-radius: 3px 3px 0 0;
+			> div {
+				float: left;
+				padding-top: 15px;
+				margin: 0px 9px 0 0;
+                display: none;
+				span {
+					  box-shadow: none;
+					  height: 2px; }
+
+				}
+			}
+        }
+    }
+    .vertical-wrapper{
+        .megamenu-pattern{
+			.container{
+			padding:0px !important;
+			
+			}
+        }
+        
+        ul.megamenu{
+			border-top: none;
+			background: #fff;
+			z-index: 9;
+			
+            > li{                
+                background: none;
+				border: 0;
+				position: relative;
+				z-index: 9;
+				cursor: pointer;
+               
+                > a{                                   
+                    padding: 11px 0;
+					margin:0 10px 0 20px;
+					border-bottom: 1px solid #efefef;
+					color: #222;
+					font-weight: normal;
+					background: transparent;
+					font-size: 14px;
+                    line-height: 22px;
+					text-transform: capitalize;
+					display: block;
+					-webkit-transition: all 300ms linear;
+					-moz-transition: all 300ms ease 0s;
+
+                    
+                }
+                &.with-sub-menu{ 
+                    > a .fa-angle-right:before{
+                        color: #ccc;
+                        font-family: $FontAwesome;
+                        display: inline-block;
+                        @include if-ltr{             
+                            content: "\f105"; 
+                        }  
+                        @include if-rtl {
+                            content: "\f104"; 
+                        }  
+                        font-size: 15px;
+                        position: absolute;
+                        #{$right}: 0px;
+                        top: 12px;
+                    }
+                    &:hover{
+                        > a::before{
+                            color: $linkColor;
+                        }
+                    }
+                }
+                &.active,
+                &:hover{
+                   
+                   
+                    > a{   
+                        color:$linkColor;                                              
+                    }
+                    
+                }
+               
+                
+            }
+            .loadmore{
+                padding: side-values(14px 15px 14px 20px);
+                line-height: 100%;
+                i{
+                    padding-left: 5px;
+                    font-size: 14px;
+                    color: $linkColor;
+                }
+                .more-view{
+                    color: $linkColor;
+                    font-size: 14px;
+                }
+             
+            }
+            .fa-caret-right{float: $right;margin: 5px 10px 0 0;color: #999;padding: 0;}
+			.item-vertical.vertical-style2{
+				.content {
+					padding: 0;
+					.static-menu{ 
+						.menu{
+							ul li {
+								padding: 0;
+								line-height: 26px;
+								a.main-menu {
+									margin: 0 0 10px; }
+								}
+							>ul{
+								margin-top: 20px;
+								ul li {
+									padding: 1px 0; }
+								> li {
+									margin: 0 0 20px;
+									&:last-child {
+										margin: 0; }
+									}
+								}
+							}
+						}
+					.html.item-1{
+						.col-sm-8 {
+							padding-top: 25px; }
+						}
+					.html .item-1,.html .item-3 {
+						padding: 0 0 0 85px;
+						margin: 0 0 20px;
+						>a{
+							font-size: 14px;
+							font-weight: bold;
+							text-transform: uppercase;
+							color: #222;
+							padding: 0;
+							line-height: 22px;
+							position: relative;
+							}
+						> a:hover{
+							color: $background;
+							}
+						ul {
+							padding: 5px 0 10px;
+							a{
+								font-weight: normal;
+								color: $textColor;
+								padding: 2px 0 !important;
+								font-size: 13px;
+								line-height: 22px;
+								margin: 0 !important;
+								border: none !important;
+								&:hover{color: $background;}
+								
+								}
+							
+							}
+						}
+						.icon-1 {
+							background: url("../image/icon/icon-1.jpg") no-repeat left 10px center;}
+						.icon-2 {
+							background: url("../image/icon/icon-2.jpg") no-repeat left 10px center;}
+						.icon-3 {
+							background: url("../image/icon/icon-3.jpg") no-repeat left 10px center;}
+						.icon-4 {
+							background: url("../image/icon/icon-4.jpg") no-repeat left 10px center;}
+						.icon-5 {
+							background: url("../image/icon/icon-5.jpg") no-repeat left 10px center;}
+						.icon-6 {
+							background: url("../image/icon/icon-6.jpg") no-repeat left 10px center;}
+						.icon-7 {
+							background: url("../image/icon/icon-7.jpg") no-repeat left 10px center;}
+						.icon-8 {
+							background: url("../image/icon/icon-8.jpg") no-repeat left 10px center;}
+							
+					}
+			
+				}
+				
+			.item-vertical.vertical-style3{
+				.content {
+					padding: 0; 
+					.item-1.html {
+						padding: 20px 10px; 
+						.label-vertical {
+							a {
+								color: #222;
+								font-weight: bold;
+								font-size: 14px;
+								text-transform: capitalize;
+								padding: 2px 0 !important; }
+								.label-vertical a:hover {
+								color: $background; }
+							span{
+								padding: 5px 15px;
+								background: #ed3f46;
+								line-height: 100%;
+								border-radius: 3px;
+								color: #fff;
+								font-weight: normal;
+								font-size: 13px;
+								min-width: 60px;
+								display: inline-block;
+								margin-right: 5px;} 
+							span.color2{
+									background: #63c54c; }
+							span.color3 {
+									background: #ecaa1b; }
+								
+							}
+						a {
+							padding: 4px 10px;
+							font-weight: normal;
+							color: #666;
+							font-size: 13px;
+							line-height: 22px;
+							margin: 0 !important;
+							border: none !important; 
+							&:hover {
+								color: $background; }
+						}
+					}
+				}
+				}
+			
+			}
+			
+			
+        }
+        
+    }
+
+
+
+.container-megamenu.vertical {    
+    ul.megamenu > li > a strong{
+        font-weight: normal;
+        padding-left: 30px;
+        i {
+            font-size: 9px;
+            padding-right: 0;
+            }
+    }
+    .vertical-wrapper{
+		width: 100%;
+		background: white;
+		position: relative;
+		border-top: 0;
+		border:none;
+        ul.megamenu .sub-menu .content .img-banner img{ width: 100%; }
+		ul.megamenu .sub-menu .content .img-banner {
+				padding-right: 15px;
+				float: right;
+				}
+		
+        ul.megamenu > li > a img{height: auto; margin: 0; position: absolute; top: 17px; transform: translateY(-50%); left: 2px;}
+
+
+        /*---------------- SUB MENU VERTICAL -----------------*/
+        ul.megamenu .sub-menu .content > .border{
+            padding: 0;
+            border: none;
+        }
+       
+        ul.megamenu > li > .sub-menu .content{
+            @include if-ltr {box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);}
+            @include if-rtl {box-shadow: 1px 3px 4px 0 rgba(0, 0, 0, 0.1);}
+            
+            .static-menu .menu {
+                > ul{ 
+                    > li{
+                        margin-bottom: 15px;
+                    }
+                    
+                    li a.main-menu{
+                        color: #222;
+                        @include rem(font-size,14px);
+                        margin: 0 0 0px;
+                        display: block;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        border: none; 
+                    }
+                    ul{
+                        padding: 0;
+                        li{padding:  0; 
+                            
+                            display: inline;
+                            a{
+                                @include rem(font-size,14px);
+                                font-weight: 400;
+                                //color: #777;
+                                display: block;
+                                line-height: 28px;
+
+                            }
+                            &:before{
+                                display: none;
+                            }
+                            &:hover{
+                               a{ color: $linkColor; } 
+                            }
+                        }
+                    }
+                }
+            }
+            .link:hover{
+                img{
+                    opacity: 0.8;
+                }
+            }
+            .img-vbanner{
+                a:hover{
+                    img{
+                        opacity: 0.8;
+                    }
+                }
+            }
+
+            // type subcategory
+            ul.subcategory{
+                .title-submenu{
+                    font-weight: 700;
+                    color: #222;
+                    font-size: 14px;
+                    text-transform: capitalize;
+                    padding: side-values(0 0 3px 0);
+                }
+                .menu{
+                    ul{
+                        li{
+                            line-height: 100%;
+                            display: inline;
+                            a{                         
+                                font-size: 14px;
+                                line-height: 28px;
+                                &:hover{
+                                    //color: $linkColor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        ul.megamenu {
+            
+            
+            .item-vertical.css-menu{
+                
+                .content{
+                    padding: 0;
+                    .menu ul{
+                        margin: 10px 0;
+                        padding: 0;
+                         li{
+                            padding: 0 ;
+                            position: relative;  
+                            border-bottom: 1px solid #efefef;
+
+                            &:last-child{border: none;}
+                            > a{ line-height: 30px; font-size: 14px; display: inline-block; width: 100%; padding: 0 20px;}
+                            b{
+                                float: $right;
+                                line-height: 27px;
+                                font-size: 16px;
+                                margin: 0 20px;
+                                position: absolute;
+                                top: 0;
+                                #{$right}:0;
+                                &:before{
+                                    @include if-rtl {
+                                        content: "\f104"; 
+                                    } 
+                                }                               
+                            }
+                            &:hover{ > a{color: $linkColor;}} 
+                            
+                            ul{
+                                width: 250px;
+                                padding: 10px 0;
+                                top: 0;
+                                margin: 0;                         
+                                &:before, &:after{display: none;}
+                                #{$left}: 100%;
+                                li{
+                                   
+                                    &:last-child{border: none;}
+                                    > a{
+                                        font-weight: normal;
+                                        line-height: 30px;
+                                        
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            li .sub-menu{
+                @media (min-width: 992px) {
+                    @include if-rtl {
+                        left: auto;
+                        right: 100% !important;
+                    }
+                }
+          
+                
+                
+            }
+
+           
+        } 
+       
+    }
+}
+
+

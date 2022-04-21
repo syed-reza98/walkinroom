@@ -1,0 +1,224 @@
+/*===============================================
+[SASS DIRECTORY ]
+    
+[1] MODULE DEFAULT
+[2] BLOCK SEARCH
+[3] SOCIAL FOOTER
+    
+==============================================*/
+.h1, .h2, .h3, h1, h2, h3, .h4, .h5, .h6, h4, h5, h6 {
+  margin: 0 0 15px 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+/************************************************************************************************
+ALL GARENAL HOME  
+*************************************************************************************************/
+.section-home3{
+  position: relative;
+  .sl-content{
+    color: #fff; position: absolute; right: 8%; top: 50%; z-index: 9; max-width: 520px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    .title{
+      text-transform: capitalize; font-size: 30px; margin-bottom: 13px;
+    } 
+    h3{
+      text-transform: capitalize; font-size: 70px; margin-bottom: 10px; font-family: 'Abril Fatface', cursive; font-weight: normal;
+    } 
+    p{
+      font-size: 16px; margin-bottom: 45px;
+    } 
+    a{
+      color: #fff;
+      font-size: 14px;
+      text-transform: uppercase;
+      background: #2db2ff;
+      border-radius: 17px;
+      height: 34px;
+      line-height: 34px;
+      padding: 0 30px;
+      display: inline-block; vertical-align: top;
+      i{
+        margin-left: 10px;
+      }
+      &:hover{
+        background: darken($background, 10%);
+      }
+    }
+  }
+  .owl2-carousel {
+    .owl2-stage-outer{
+      margin:0 38% 0 -20px; padding-top: 60px; min-height: 600px;
+      .owl2-stage{
+        .owl2-item{
+          @include transition(all 0.8s ease 0s); transform: scale(0.9);
+          &.center{
+            min-width: 380px; transform: scale(1); margin-left: 15px; margin-right: 5px !important;
+            @include transition(all 0.8s ease 0s); margin-top: -52px;
+            .item .item-block {
+              &:before{
+                background: -webkit-linear-gradient(left top, #2db2ff, transparent);
+                background: -o-linear-gradient(bottom right, #2db2ff, transparent);
+                background: -moz-linear-gradient(bottom right, #2db2ff, transparent);
+                background: linear-gradient(to top, #2db2ff, transparent);
+              }
+              .item-content {
+                h3{
+                  font-size: 22px; line-height: 30px; margin-bottom: 15px; font-weight: 500;
+                }
+                .reviews-content{
+                  margin-bottom: 7px;
+                }
+                .price{
+                  height: auto; visibility: visible; opacity: 1; @include transition(all 0.5s ease 0s);
+                }
+              }
+            }
+          }
+          &:last-child{
+            display: none;
+          }
+        }
+      }
+    }
+    .owl2-controls{
+      position: absolute; bottom: 50px; left: 70px;
+      .owl2-nav{
+        .owl2-prev{
+          left: 0; position: absolute; bottom: 0; font-size: 0; text-align: center; display: block !important;
+          color: #ccc; border-radius: 50%; background: $background; width: 20px; height: 20px; line-height: 20px; opacity: 0.8;
+          &:before{
+            content: "\f177"; font-family: fontawesome; font-size: 14px; color: #fff; margin-right: -12px;
+          }
+        }
+        .owl2-next{
+          left: 125px; position: absolute; bottom: 0; font-size: 0; text-align: center; display: block !important;
+          color: #ccc; border-radius: 50%; background: $background; width: 20px; height: 20px; line-height: 20px; opacity: 0.8;
+          &:before{
+            content: "\f178"; font-family: fontawesome; font-size: 14px; color: #fff; margin-left: -12px;
+          }
+        }
+      }
+      .owl2-dots{
+        line-height: 13px; padding-left:30px;
+        .owl2-dot{
+          width: 6px; height: 6px; border-radius: 3px; background: #ddd; display: inline-block; vertical-align: top; margin-right: 5px; border: 1px $background solid;
+          &.active{
+            background: $background; width: 20px;
+          }
+          &:hover{
+            background: $background;
+          }
+        }
+      }
+    }
+  }
+  .products-list .product-layout{
+    overflow: inherit;
+    .product-item-container {
+      overflow: inherit; margin: 0; background: transparent;
+    }
+  }
+  .item{
+    padding-left: 5px; position: relative;
+    .product-item-container {
+      border-radius: 8px;
+    }
+    .item-block{
+      transition: all 0.3s ease 0s; position: relative;
+      &:before{
+        position: absolute;
+        content: '';
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 40%;
+        z-index: 1;
+        background: -webkit-linear-gradient(left top,#000,transparent);
+        background: -o-linear-gradient(bottom right,#000,transparent);
+        background: -moz-linear-gradient(bottom right,#000,transparent);
+        background: linear-gradient(to top,#000,transparent);
+        opacity: 0.8; border-radius: 0 0 6px 6px;
+        @include transition(all 0.3s ease 0s); 
+      }
+      .image{
+        position: relative;
+        a img{
+          border-radius: 6px;
+        }
+        .label-hot{
+          background: #ff5454; color: #fff; font-size: 18px; height:36px; line-height: 36px; display: inline-block; vertical-align: top; padding-right: 10px; text-transform: capitalize;
+          position: absolute; top: 14px; left: -5px;
+          i{
+            background: #ff2929; width: 36px; height: 36px; line-height: 36px; text-align: center; display: inline-block; vertical-align: top; margin: 0 10px 0 0;
+          }
+          &.rate{
+            background: #31568d; top: 40px;
+            i{
+              background: #1d3456;
+            }
+          }
+        }
+        .label-rate{
+          background: #31568d; color: #fff; font-size: 18px; height: 36px; line-height: 36px; display: inline-block; vertical-align: top; padding-right: 10px; text-transform: capitalize;
+          position: absolute; top: 14px; left: -5px;
+          i{
+            background: #1d3456; width: 36px; height: 36px; line-height: 36px; text-align: center; display: inline-block; vertical-align: top; margin: 0 10px 0 0;
+          }
+          &.style2{
+            top: 62px;
+          }
+        }
+        .book-tour{
+          width: 45px; height: 45px; position: absolute; top: 0; right: 0;  background: url("../image/icon-book2.png") no-repeat center center #fff; border-radius: 0 6px 0 6px;
+        }
+      }
+      .item-content{
+        padding: 20px; position: absolute; bottom: -5px; left: 0; right: 0; z-index: 2;
+        transition: all 0.3s; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -o-transition: all 0.3s; -ms-transition: all 0.3s;
+        h3{
+          font-size: 18px; line-height: 26px; margin: 0 0 10px 0;
+          a{
+            color: #fff;
+          }
+        }
+        .reviews-content{
+          position: relative; margin-bottom: 0;
+          .star{
+            background: url("../image/icon/star.png") repeat-x scroll 0 0 rgba(0,0,0,0);
+            height: 15px; margin: 0; overflow: hidden; position: relative; width: 75px; display: inline-block; vertical-align: top;
+            span{
+              background: url("../image/icon/star-active.png") repeat scroll 0 0 rgba(0,0,0,0);
+              float: left; left: 0; overflow: hidden; padding-top: 1.5em; position: absolute; top: 0;
+            }
+          }
+        }
+        .price{
+          color: #fff; font-weight: normal; font-size: 19px; margin-bottom: 0; height: 0; visibility: hidden; opacity: 0; @include transition(all 0.5s ease 0s);
+          label{
+            font-size: 33px; color: #fff; font-weight: 700;
+          }
+          span{
+            color: #fff; font-weight: normal; font-size: 19px; position: relative; padding-left: 5px;
+            &:before{
+              content: "/"; position: absolute; left: -1px; top: -4px; font-size: 22px;
+            }
+          }
+        }
+      }
+      &:hover{
+        &:before{
+          height: 50%; @include transition(all 0.3s ease 0s); 
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1440px){
+  footer.typefooter-3 .socical-footer{
+    display: none;
+  }
+}

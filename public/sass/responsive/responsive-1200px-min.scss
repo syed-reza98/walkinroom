@@ -1,0 +1,38 @@
+@include breakpoint(lg){
+	.footer-has-toggle{
+		display: block !important;
+	}
+	.container {
+		width: 1200px;
+	}
+	.container-megamenu.vertical .vertical-wrapper{ position: absolute;}
+}
+@media (min-width: 1200px) and (max-width: 1649px){
+	.module.sohomepage-slider .slider-home1 .item {
+		.info{
+			top: 23%;
+		}
+		.info-right {
+			right: 8%;
+			img{
+				width: 185px;
+			}
+		}
+	}
+	.section-home3 {
+		.sl-content{
+			max-width: 330px;
+		}
+		.owl2-carousel {
+			.owl2-stage-outer{
+				margin: 0px 34% 0 -15px; min-height: 500px;
+				.owl2-stage .owl2-item.center{
+					min-width: 330px;
+				}
+			}
+			.owl2-controls{
+				bottom: 40px;
+			}
+		}
+	}
+}
